@@ -26,8 +26,9 @@ final counterAtom = Atom(
 );
 dispatch(IncrementAction());
 print(counterAtom.value);
-// prints 1
+// output: 1
 
-// You can watch for changes in the build method which will cause a rebuild whenever the atom value changes
+// You can watch for changes in the build method
+// which will cause a rebuild whenever the atom value changes
 counterAtom.watch(context)
 ```
