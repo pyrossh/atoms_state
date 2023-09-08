@@ -1,4 +1,4 @@
-# flutter atoms_state
+# atoms_state
 
 Simple State Management for flutter
 
