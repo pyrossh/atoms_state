@@ -9,35 +9,32 @@ void dispatch<T, A>(A a) {
   for (final atom in atoms) {
     final newValue = atom.reducer(atom.valueNotifier.value, a);
     atom.valueNotifier.value = newValue;
-    if (atom.box != null) {
+    if (atom.storage != null) {
       if (newValue == null) {
-        atom.box!.remove(atom.key);
+        atom.storage!.delete(atom.key);
       } else {
-        atom.box!.write(atom.key, newValue);
+        atom.storage!.set(atom.key, newValue);
       }
-      atom.box!.save();
     }
   }
 }
 
 abstract class Storage {
-  T? read<T>(String key);
+  T? get<T>(String key);
 
-  Future<void> write(String key, dynamic value);
+  Future<void> set(String key, dynamic value);
 
-  Future<void> remove(String key);
-
-  Future<void> save();
+  Future<void> delete(String key);
 }
 
 class Atom<T, A> {
   late ValueNotifier<T> valueNotifier;
   final String key;
-  final Storage? box;
+  final Storage? storage;
   final dynamic Function(dynamic, dynamic) reducer;
 
-  Atom({required this.key, required T initialState, this.box, required this.reducer}) {
-    valueNotifier = ValueNotifier(box != null ? box!.read<T>(key) ?? initialState : initialState);
+  Atom({required this.key, required T initialState, this.storage, required this.reducer}) {
+    valueNotifier = ValueNotifier(storage != null ? storage!.get<T>(key) ?? initialState : initialState);
     atoms.add(this);
   }
 

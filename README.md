@@ -5,7 +5,7 @@ Simple State Management for flutter
 ## Usage
 
 ```dart
-import "pyrossh/flutter_atoms";
+import "flutter_atoms/flutter_atoms";
 
 class IncrementAction {}
 
@@ -24,11 +24,13 @@ final counterAtom = Atom(
     return state;
   },
 );
-dispatch(IncrementAction());
-print(counterAtom.value);
-// output: 1
 
-// You can watch for changes in the build method
-// which will cause a rebuild whenever the atom value changes
-counterAtom.watch(context)
+void main() {
+  dispatch(IncrementAction());
+  print(counterAtom.value); // outputs 1
+
+  // You can watch for changes in the build method
+  // which will cause a rebuild whenever the atom value changes
+  counterAtom.watch(context);
+}
 ```
