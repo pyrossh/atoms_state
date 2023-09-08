@@ -1,7 +1,7 @@
 name: atoms_state
 description: Simple State Management for flutter
 version: 0.0.1
-homepage:
+homepage: https://github.com/pyrossh/atoms_state
 
 environment:
   sdk: '>=3.1.0 <4.0.0'
