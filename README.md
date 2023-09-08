@@ -5,7 +5,7 @@ Simple State Management for flutter
 ## Usage
 
 ```dart
-import "flutter_atoms/flutter_atoms";
+import "atoms_state/atoms_state.dart";
 
 class IncrementAction {}
 

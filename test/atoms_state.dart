@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_atoms/flutter_atoms.dart';
+import 'package:atoms_state/atoms_state.dart';
 
 class IncrementAction {}
 
